@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 6% 4%;
+    --foreground: 0 0% 98%;
+    --card: 240 6% 6%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 6% 8%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
+    --muted: 240 6% 11%;
+    --muted-foreground: 240 4% 56%;
+    --accent: 240 6% 13%;
+    --accent-foreground: 0 0% 98%;
+    --border: 240 5% 15%;
+    --input: 240 6% 11%;
+    --ring: 221 83% 53%;
+    --success: 142 71% 45%;
+    --warning: 38 96% 56%;
+    --destructive: 0 84% 60%;
+    --radius: 0.6rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family:
+      ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica,
+      Arial, sans-serif;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+.react-flow__attribution {
+  display: none;
+}
+
+.react-flow__node {
+  font-family: inherit;
+}
+
+.react-flow__node-service {
+  cursor: grab;
+}
+
+.react-flow__node-service:active {
+  cursor: grabbing;
+}
+
+.react-flow__handle {
+  width: 7px;
+  height: 7px;
+  background: hsl(var(--muted-foreground));
+  border: 2px solid hsl(var(--background));
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.react-flow__node:hover .react-flow__handle {
+  opacity: 1;
+}
+
+.react-flow__edge-path {
+  stroke: hsl(var(--border));
+  stroke-width: 1.5;
+}
+
+.react-flow__edge.selected .react-flow__edge-path,
+.react-flow__edge:hover .react-flow__edge-path {
+  stroke: hsl(var(--muted-foreground));
+}
